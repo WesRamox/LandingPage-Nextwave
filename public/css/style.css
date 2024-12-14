@@ -1,17 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .google-colors span {
   display: inline-block;
 }
 .google-colors span:nth-child(4n+1) {
-  color: #4285F4;
+  color: #4285f4;
 }
 .google-colors span:nth-child(4n+2) {
-  color: #EA4335;
+  color: #ea4335;
 }
 .google-colors span:nth-child(4n+3) {
-  color: #FBBC05;
+  color: #fbbc05;
 }
 .google-colors span:nth-child(4n+4) {
-  color: #34A853;
+  color: #34a853;
 }
 
 .primary-btn {
@@ -112,6 +116,21 @@
   gap: 10px;
   justify-content: center;
 }
+.navbar.scroll {
+  transition: all 0.3s ease;
+  position: fixed;
+  background: rgba(26, 26, 26, 0.8862745098);
+  z-index: 999;
+  animation: scroll 0.5s;
+}
+@keyframes scroll {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 
 .main-index {
   background-color: #130342;
@@ -166,7 +185,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 0;
+  padding: 50px 0 245px;
+  flex-direction: column;
+  position: relative;
 }
 .second-section .container {
   display: flex;
@@ -200,8 +221,14 @@
   transition: all 0.5s ease;
   cursor: pointer;
 }
+.second-section svg {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+}
 
 .project-section {
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -242,10 +269,179 @@
   line-height: 25px;
 }
 
-.rodape {
-  margin-top: 100px;
-  background-color: #171717;
+.prices-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px 0 250px;
+  position: relative;
+  scroll-margin-top: 100px;
+}
+.prices-section .box-title {
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.prices-section .box-title .title {
+  font-weight: 300;
+  font-size: 50px;
+}
+.prices-section .box-title p {
+  color: #7a7a7a;
+}
+.prices-section .container {
+  display: flex;
+  flex-direction: column;
+}
+.prices-section .container .produtos {
+  display: flex;
+  gap: 20px;
+}
+.prices-section .container .produtos .box-price:nth-last-child(2) h3 {
+  color: rgb(136, 0, 255);
+}
+.prices-section .container .produtos .box-price:nth-last-child(1) h3 {
+  color: rgb(241, 54, 73);
+}
+.prices-section .container .produtos .box-price {
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  border: solid rgba(49, 49, 49, 0.2666666667) 1px;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 400px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 99;
+  cursor: pointer;
+  overflow: hidden;
+}
+.prices-section .container .produtos .box-price::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  height: 0%;
+  background-color: rgb(243, 243, 243);
+  transition: all 0.3s ease;
+}
+.prices-section .container .produtos .box-price:hover::before {
+  height: 100%;
+  bottom: 0;
+}
+.prices-section .container .produtos .box-price h3 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #5888ff;
+}
+.prices-section .container .produtos .box-price h4 {
+  color: #727272;
+  font-weight: 400;
+}
+.prices-section .container .produtos .box-price .price {
+  font-size: 40px;
+  display: flex;
+  gap: 5px;
+  font-weight: 600;
+}
+.prices-section .container .produtos .box-price .price span {
+  font-size: 20px;
+  margin-top: 5px;
+}
+.prices-section .container .produtos .box-price a {
+  background-color: #5888ff;
   color: white;
+  border: solid #5888ff 1px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+}
+.prices-section .container .produtos .box-price a:hover {
+  background-color: white;
+  border: solid #5888ff 1px;
+  color: #5888ff;
+  transition: all 0.3s ease;
+}
+.prices-section svg {
+  position: absolute;
+  bottom: 0;
+}
+
+.about-section {
+  padding: 150px 0;
+  background-color: #130342;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.about-section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.about-section .container .left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.about-section .container .left .title-left {
+  font-weight: 500;
+  font-size: 40px;
+}
+.about-section .container .left .box-culture {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 25px;
+}
+.about-section .container .left .box-culture .text-culture {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 5px;
+  flex: 1 1 calc(50% - 25px);
+}
+.about-section .container .left .box-culture .text-culture i {
+  border-radius: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px;
+  color: #4285f4;
+  font-size: 25px;
+  background-color: rgba(71, 61, 112, 0.3529411765);
+}
+.about-section .container .left .box-culture .text-culture h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.about-section .container .left .box-culture .text-culture p {
+  font-size: 14px;
+  color: #a7a7a7;
+}
+.about-section .container .right {
+  width: 50%;
+}
+.about-section .container .right img {
+  width: 600px;
+  border-radius: 20px;
+}
+
+.rodape {
+  background-color: #ffffff;
+  color: rgb(8, 8, 8);
   height: auto;
   width: 100%;
   font-size: 14px;
@@ -253,7 +449,7 @@
 }
 .rodape a {
   text-decoration: none;
-  color: white;
+  color: rgb(22, 22, 22);
 }
 .rodape p {
   margin-bottom: 5px;
@@ -263,12 +459,12 @@
   flex-wrap: wrap;
   width: 100%;
   margin: auto;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
-  padding: 60px 10px 40px 10px;
+  padding: 100px 10px 100px 10px;
 }
 .rodape .rodape-div .rodape-div-1-coluna img {
-  width: 300px;
+  width: 100px;
 }
 .rodape .rodape-div .rodape-div-1,
 .rodape .rodape-div .rodape-div-2,
@@ -280,12 +476,13 @@
 }
 .rodape span {
   font-size: 20px;
-  color: white;
+  color: rgb(20, 20, 20);
 }
 .rodape .rodape-direitos {
   width: calc(100% - 20px);
   background-color: black;
   padding: 10px;
+  color: white;
   margin: 0;
   text-align: center;
 }
